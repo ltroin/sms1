@@ -35,15 +35,18 @@ stages:
       md5: ea5b0f1cdab8ead73b258cc8ba098079
       size: 374988
     - path: src/text_classification.py
-      md5: ea5cea56efbcfb732c31873c80d5d462
-      size: 3385
+      md5: fbe97a74b281e036668276e2956d06ca
+      size: 3630
     outs:
     - path: output/accuracy_scores.png
-      md5: a86081a64fcfa887cf5ae5c6739b514e
-      size: 23990
+      md5: a50a7874e4a667a56ca8da2971cebcb6
+      size: 23944
+    - path: output/metrics.json
+      md5: 753363b8dc1239b4f32446760e3eeee9
+      size: 32
     - path: output/misclassified_msgs.txt
-      md5: 82fb29cd03c929d24cb9246b0bd58e78
-      size: 63350
+      md5: 72e6e2f0eb70d70c64d99362c2bebc3a
+      size: 70231
     - path: output/model.joblib
-      md5: e4d2a74d7d9ef222c39d8acd5776d1ee
+      md5: 2a23b598f69d536675704b014753a8d4
       size: 11226
