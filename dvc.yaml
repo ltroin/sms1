@@ -14,7 +14,7 @@ stages:
     - output/preprocessed_data.joblib
     - output/preprocessor.joblib
   train:
-    cmd: python src/text_classification.py
+    cmd: python -m src.text_classification
     deps:
     - output/preprocessed_data.joblib
     - src/text_classification.py

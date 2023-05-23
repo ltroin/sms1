@@ -29,24 +29,24 @@ stages:
       md5: 46cd1aa38e422ceee0928657c8ea628d
       size: 162636
   train:
-    cmd: python src/text_classification.py
+    cmd: python -m src.text_classification
     deps:
     - path: output/preprocessed_data.joblib
       md5: ea5b0f1cdab8ead73b258cc8ba098079
       size: 374988
     - path: src/text_classification.py
-      md5: fbe97a74b281e036668276e2956d06ca
-      size: 3630
+      md5: 05500535cc6e596544b56a7c641fa1d2
+      size: 3803
     outs:
     - path: output/accuracy_scores.png
-      md5: a50a7874e4a667a56ca8da2971cebcb6
-      size: 23944
+      md5: 40ecd107ad4d082724c9c701d0ebbfba
+      size: 23985
     - path: output/metrics.json
-      md5: 753363b8dc1239b4f32446760e3eeee9
+      md5: cd74b9cefd585506c1e14bb9d92aa097
       size: 32
     - path: output/misclassified_msgs.txt
-      md5: 72e6e2f0eb70d70c64d99362c2bebc3a
-      size: 70231
+      md5: 736cd44e7ad433d17b92719ef4ea5dba
+      size: 65748
     - path: output/model.joblib
-      md5: 2a23b598f69d536675704b014753a8d4
-      size: 11226
+      md5: 74ffdb3d1bfb3a7ee1e246b4eec162a5
+      size: 11946
