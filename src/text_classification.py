@@ -13,17 +13,17 @@ from sklearn.metrics import accuracy_score, classification_report
 from joblib import dump, load
 import matplotlib
 import matplotlib.pyplot as plt
-from text_preprocessing import _load_data
+from .text_preprocessing import _load_data
 import json
 #matplotlib.use('TkAgg')
 pd.set_option('display.max_colwidth', None)
 
 
-def my_train_test_split(*datasets):
+def my_train_test_split(*datasets,random_state=23):
     '''
     Split dataset into training and test sets. We use a 70/30 split.
     '''
-    return train_test_split(*datasets, test_size=0.3, random_state=25)
+    return train_test_split(*datasets, test_size=0.3, random_state=random_state)
 
 def train_classifier(classifier, X_train, y_train):
     classifier.fit(X_train, y_train)
@@ -35,7 +35,7 @@ def save_metrics(metrics, path):
     with open(path, 'w') as f:
         json.dump(metrics, f)
 
-def main():
+def main(random_state=42):
 
     raw_data = _load_data()
     preprocessed_data = load('output/preprocessed_data.joblib')
@@ -44,7 +44,8 @@ def main():
      y_train, y_test,
      _, test_messages) = my_train_test_split(preprocessed_data,
                                              raw_data['label'],
-                                             raw_data['message'])
+                                             raw_data['message'],
+                                             random_state=random_state)
 
     classifiers = {
         'SVM': SVC(),
@@ -96,5 +97,6 @@ def main():
     dump(classifiers['Decision Tree'], 'output/model.joblib')
     # Save accuracy to a JSON file
     save_metrics({"accuracy": accuracy_score(y_test, pred['Decision Tree'])}, 'output/metrics.json')
+    return accuracy_score(y_test, pred['Decision Tree'])
 if __name__ == "__main__":
     main()
